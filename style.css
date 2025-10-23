@@ -14,8 +14,16 @@ h1, h2{margin: 0 0 .5rem;
 ul { margin: .5rem 0 0 1rem; 
 }
 
+/* ===== Affinity Diagram Styling ===== */
+figure {
+  margin: 1.5rem auto;
+  text-align:center;
+}
+
+
 figure img {
-  max-width: 100%
+  width: 100%;
+  max-width: 600px%
   height:auto;
   border: 1px solid #ccc;
   border-radius: 10px;
