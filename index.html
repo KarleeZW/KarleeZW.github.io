@@ -11,179 +11,207 @@
   </head>
 
   <body>
-    <!-- ===== Header Navigation ===== -->
-    <header>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#problem">Problem Statement</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#repos">Code Repositories</a>
-        <a href="#affinity">Affinity Diagram</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+    <div class="app-shell">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">KW</div>
+          <div class="brand-text">
+            <span class="brand-name">Karlee Williams</span>
+            <span class="brand-subtitle">CSCE 190 Portfolio</span>
+          </div>
+        </div>
 
-    <!-- ===== Card Grid Wrapper ===== -->
-    <main class="card-grid">
-      <!-- About -->
-      <section id="about" class="about">
-        <h1>Karlee Williams</h1>
-        <p>This web page is for CSCE 190.</p>
-        <p>
-          I am a computer science student and Air National Guard service member
-          interested in software development, problem solving, and building tools
-          that make everyday life easier.
-        </p>
-      </section>
+        <nav class="side-nav">
+          <a href="#about">About</a>
+          <a href="#problem">Problem Statement</a>
+          <a href="#portfolio">Mission &amp; Resume</a>
+          <a href="#repos">Code Repositories</a>
+          <a href="#affinity">Affinity Diagram</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-      <!-- Problem Statement (moved ABOVE mission statement) -->
-      <section id="problem" class="problem">
-        <h2>Problem Statement</h2>
-        <p>
-          <strong>Headline:</strong> Many college students lack simple tools to
-          manage their spending and build healthy budgeting habits, leading to
-          stress and poor financial decisions.
-        </p>
-        <p>
-          College students often struggle to keep track of their spending and
-          manage money wisely. Without simple tools or guidance, it is easy to
-          overspend, fall behind on bills, or miss opportunities to save. A
-          better way to track expenses and build smart budgeting habits could
-          help students stay financially stable and stress-free.
-        </p>
-      </section>
-
-      <!-- Portfolio / Mission Statement -->
-      <section id="portfolio" class="portfolio">
-        <h2>Mission Statement</h2>
-        <p>
-          My mission is to combine my technical skills, discipline, and
-          leadership experience from the military to design software that makes
-          complex tasks simple, helps people stay organized, and creates
-          positive impact in their daily lives.
-        </p>
-
-        <h3>Resume</h3>
-        <p>You can view my full resume here:</p>
-        <ul>
-          <li>
-            <a href="files/resume.pdf" target="_blank">Resume (PDF version)</a>
-          </li>
-          <li>
-            <a href="resume.html" target="_blank">Resume (HTML version)</a>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Code Repositories -->
-      <section id="repos" class="repos">
-        <h2>Code Repositories</h2>
-        <p>
-          This repository contains my C++ implementation of two classes:
-          <strong>Height</strong> and <strong>HeightRange</strong>. The program
-          supports unit conversion between feet, inches, centimeters, and meters,
-          validates input, and includes automated test files to ensure accurate
-          measurements and conversions. It demonstrates my understanding of
-          classes, encapsulation, constructors, getters/setters, and unit
-          testing.
-        </p>
-        <ul>
-          <li>
-            <a
-              href="https://github.com/KarleeZW/Cplusplus-program"
-              target="_blank"
-            >
-              C++ Height &amp; HeightRange Program (GitHub Repository)
-            </a>
-          </li>
-        </ul>
-
-        <!-- Optional: code screenshot, add images/code-sample.png to your repo -->
-        <!--
-        <figure>
-          <img
-            src="images/code-sample.png"
-            alt="Screenshot of C++ Height and HeightRange program code"
-          />
-          <figcaption>Example code from my Height &amp; HeightRange C++ program.</figcaption>
-        </figure>
-        -->
-      </section>
-
-      <!-- Affinity Diagram -->
-      <section id="affinity" class="affinity">
-        <h2>Affinity Diagram</h2>
-        <p>
-          Below is an affinity diagram that organizes possible causes,
-          categories, and strategies related to student money management and
-          budgeting challenges.
-        </p>
-        <figure>
-          <a href="files/Affinity Diagram.pdf" target="_blank">
-            <img
-              src="images/Affinity Diagram.png"
-              alt="Affinity diagram for budgeting and student financial management"
-            />
+        <div class="sidebar-footer">
+          <p class="sidebar-label">Contact</p>
+          <a href="mailto:karleezw@gmail.com" class="sidebar-email">
+            karleezw@gmail.com
           </a>
-          <figcaption>
-            Affinity diagram categorizing student budgeting ideas and spending
-            patterns.
-          </figcaption>
-        </figure>
-      </section>
+        </div>
+      </aside>
 
-      <!-- Skills -->
-      <section id="skills" class="skills">
-        <h2>Skills</h2>
-        <ul>
-          <li>HTML</li>
-          <li>Java</li>
-          <li>Problem Solving</li>
-        </ul>
-      </section>
+      <!-- ===== Main Content ===== -->
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <h1>Dashboard</h1>
+            <p class="topbar-subtitle">
+              CSCE 190 · Project management &amp; portfolio pieces
+            </p>
+          </div>
+        </header>
 
-      <!-- Projects -->
-      <section id="projects" class="projects">
-        <h2>Projects</h2>
+        <!-- Card grid -->
+        <div class="card-grid">
+          <!-- About -->
+          <section id="about" class="card card-about">
+            <h2>About</h2>
+            <h3 class="card-title">Karlee Williams</h3>
+            <p class="card-tagline">Student · Air National Guard · Developer</p>
+            <p>
+              I am a computer science student and Air National Guard service
+              member interested in software development, problem solving, and
+              building tools that make everyday life easier.
+            </p>
+          </section>
 
-        <h3>Problem Statement</h3>
-        <p>
-          A concise written description of the budgeting problem faced by
-          college students and the need for a simple money-management tool.
-        </p>
-        <a href="files/statement.pdf" target="_blank">
-          View full problem statement (PDF)
-        </a>
-        <img
-          src="images/problem.png"
-          alt="Money saving problem statement screenshot"
-        />
+          <!-- Problem Statement -->
+          <section id="problem" class="card card-problem">
+            <h2>Problem Statement</h2>
+            <p>
+              <strong>Headline:</strong> Many college students lack simple tools
+              to manage their spending and build healthy budgeting habits,
+              leading to stress and poor financial decisions.
+            </p>
+            <p>
+              College students often struggle to keep track of their spending
+              and manage money wisely. Without simple tools or guidance, it is
+              easy to overspend, fall behind on bills, or miss opportunities to
+              save. A better way to track expenses and build smart budgeting
+              habits could help students stay financially stable and stress-free.
+            </p>
+          </section>
 
-        <h3>Sketches</h3>
-        <p>
-          Early design sketches showing potential layouts and features for the
-          budgeting app solution.
-        </p>
-        <a href="files/sketches-2.pdf" target="_blank">
-          View full sketches (PDF)
-        </a>
-        <img
-          src="images/sketch-preview.png"
-          alt="Preview of app sketch for budgeting solution"
-        />
-      </section>
+          <!-- Mission / Portfolio -->
+          <section id="portfolio" class="card card-portfolio">
+            <h2>Mission &amp; Resume</h2>
+            <p>
+              My mission is to combine my technical skills, discipline, and
+              leadership experience from the military to design software that
+              makes complex tasks simple, helps people stay organized, and
+              creates positive impact in their daily lives.
+            </p>
 
-      <!-- Contact -->
-      <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <p>
-          Email:
-          <a href="mailto:karleezw@gmail.com">karleezw@gmail.com</a>
-        </p>
-      </section>
-    </main>
+            <h3>Resume</h3>
+            <p>You can view my full resume here:</p>
+            <ul>
+              <li>
+                <a href="files/resume.pdf" target="_blank">
+                  Resume (PDF version)
+                </a>
+              </li>
+              <li>
+                <a href="resume.html" target="_blank">
+                  Resume (HTML version)
+                </a>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Code Repositories -->
+          <section id="repos" class="card card-repos">
+            <h2>Code Repositories</h2>
+            <p>
+              This repository contains my C++ implementation of two classes:
+              <strong>Height</strong> and <strong>HeightRange</strong>. The
+              program supports unit conversion between feet, inches,
+              centimeters, and meters, validates input, and includes automated
+              test files to ensure accurate measurements and conversions.
+            </p>
+            <p>
+              It demonstrates my understanding of classes, encapsulation,
+              constructors, getters/setters, and unit testing.
+            </p>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/KarleeZW/Cplusplus-program"
+                  target="_blank"
+                >
+                  C++ Height &amp; HeightRange Program (GitHub Repository)
+                </a>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Affinity Diagram -->
+          <section id="affinity" class="card card-affinity">
+            <h2>Affinity Diagram</h2>
+            <p>
+              This affinity diagram organizes possible causes, categories, and
+              strategies related to student money management and budgeting
+              challenges.
+            </p>
+            <figure>
+              <a href="files/Affinity Diagram.pdf" target="_blank">
+                <img
+                  src="images/Affinity Diagram.png"
+                  alt="Affinity diagram for budgeting and student financial management"
+                />
+              </a>
+              <figcaption>
+                Categories of student budgeting ideas and spending patterns.
+              </figcaption>
+            </figure>
+          </section>
+
+          <!-- Skills -->
+          <section id="skills" class="card card-skills">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+              <li>HTML</li>
+              <li>Java</li>
+              <li>Problem Solving</li>
+            </ul>
+          </section>
+
+          <!-- Projects -->
+          <section id="projects" class="card card-projects">
+            <h2>Projects</h2>
+
+            <div class="project-block">
+              <h3>Problem Statement Document</h3>
+              <p>
+                A written description of the budgeting problem faced by college
+                students and the need for a simple money-management tool.
+              </p>
+              <a href="files/statement.pdf" target="_blank">
+                View full problem statement (PDF)
+              </a>
+              <img
+                src="images/problem.png"
+                alt="Money saving problem statement screenshot"
+              />
+            </div>
+
+            <div class="project-block">
+              <h3>Interface Sketches</h3>
+              <p>
+                Early design sketches showing possible layouts and features for
+                the budgeting app solution.
+              </p>
+              <a href="files/sketches-2.pdf" target="_blank">
+                View full sketches (PDF)
+              </a>
+              <img
+                src="images/sketch-preview.png"
+                alt="Preview of app sketch for budgeting solution"
+              />
+            </div>
+          </section>
+
+          <!-- Contact -->
+          <section id="contact" class="card card-contact">
+            <h2>Contact</h2>
+            <p>
+              Email:
+              <a href="mailto:karleezw@gmail.com">karleezw@gmail.com</a>
+            </p>
+          </section>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
 
