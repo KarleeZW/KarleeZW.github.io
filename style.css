@@ -1,11 +1,10 @@
 /* ===== Color palette ===== */
 :root {
   --bg-main: #FDFDFD;
-  --primary: #084207;    /* deep green */
+  --primary: #084207;   /* deep green */
   --black: #000000;
   --brown: #311D0D;
   --gray: #C7C5BF;
-  --text-main: #000000;
 }
 
 /* Global reset / base */
@@ -17,76 +16,117 @@ body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
   line-height: 1.6;
-  background-color: var(--bg-main);
-  color: var(--text-main);
+  color: var(--black);
+
+  /* Not plain white: soft gradient using your colors */
+  background:
+    radial-gradient(circle at top, #C7C5BF 0, #FDFDFD 45%, #C7C5BF 100%);
 }
 
 /* ===== Header Navigation ===== */
 header {
   background-color: var(--black);
-  padding: 1rem;
+  padding: 1rem 0;
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 10;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.35);
+}
+
+nav {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 nav a {
   color: #FDFDFD;
-  margin: 0 1rem;
+  margin: 0 0.9rem;
   text-decoration: none;
   font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  position: relative;
+  padding-bottom: 0.25rem;
 }
 
-nav a:hover {
-  color: var(--gray);
-  text-decoration: underline;
+/* animated underline on hover */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.2s ease-out;
 }
 
-/* ===== Section layout ===== */
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== Section layout (cards) ===== */
 section {
-  max-width: 900px;
-  margin: 1.5rem auto;
-  background-color: #FFFFFF;
-  border-radius: 14px;
-  padding: 2rem;
+  max-width: 1000px;
+  margin: 1.75rem auto;
+  background-color: var(--bg-main);
+  border-radius: 18px;
+  padding: 2rem 2.25rem;
   border: 1px solid var(--gray);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Colored left accents to keep it fun but neat */
-.about   { border-left: 6px solid var(--primary); }
-.repos   { border-left: 6px solid var(--brown); }
-.problem { border-left: 6px solid var(--primary); }
-.affinity{ border-left: 6px solid var(--brown); }
-.skills  { border-left: 6px solid var(--primary); }
-.projects{ border-left: 6px solid var(--brown); }
-.contact { border-left: 6px solid var(--primary); }
+/* colored top accent bar on each card */
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: var(--primary);
+}
 
-/* Headings & lists */
+/* alternate accent color every other section */
+section:nth-of-type(even)::before {
+  background: var(--brown);
+}
+
+/* slight “lift” on hover */
+section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+
+/* Headings & text */
 h1, h2 {
   margin: 0 0 0.5rem;
   font-weight: 700;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.1rem;
 }
 
 h2 {
-  font-size: 1.4rem;
-  letter-spacing: 0.03em;
+  font-size: 1.3rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 h3 {
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   margin-bottom: 0.25rem;
   font-size: 1.1rem;
 }
 
 ul {
-  margin: 0.5rem 0 0 1rem;
+  margin: 0.5rem 0 0 1.1rem;
 }
 
 /* Links inside content */
@@ -99,7 +139,37 @@ section a:hover {
   text-decoration: underline;
 }
 
-/* ===== Affinity Diagram / Project Images ===== */
+/* ===== About / Mission small tweaks ===== */
+#about p:first-of-type {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--brown);
+}
+
+#about p:nth-of-type(2) {
+  margin-top: 0.75rem;
+}
+
+/* ===== Skills as “chips” ===== */
+#skills ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+#skills li {
+  background: #FDFDFD;
+  border: 1px solid var(--gray);
+  border-radius: 999px;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ===== Affinity Diagram / images ===== */
 figure {
   margin: 1.5rem auto;
   text-align: center;
@@ -110,15 +180,16 @@ figure img {
   max-width: 420px;
   height: auto;
   border: 1px solid var(--gray);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.14);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 /* Subtle zoom hover effect */
 figure img:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 /* Caption styling */
@@ -130,25 +201,48 @@ figcaption {
   font-style: italic;
 }
 
-/* Project thumbnails (reuse same style) */
+/* Project thumbnails */
 .projects img {
   display: block;
   width: 100%;
   max-width: 420px;
   height: auto;
-  margin: 0.5rem 0 1rem;
+  margin: 0.5rem 0 1.25rem;
   border: 1px solid var(--gray);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.14);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .projects img:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* Contact section text alignment */
+/* ===== More interesting layout for Projects on larger screens ===== */
+@media (min-width: 900px) {
+  .projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+
+  .projects h2 {
+    grid-column: 1 / -1;
+  }
+
+  /* Make each project text + image pair feel like a block */
+  .projects h3 {
+    margin-top: 0.5rem;
+  }
+
+  .projects img {
+    max-width: 100%;
+  }
+}
+
+/* Contact section */
 .contact p {
   margin: 0.25rem 0;
 }
