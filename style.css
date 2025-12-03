@@ -1,3 +1,13 @@
+/* ===== Color palette ===== */
+:root {
+  --bg-main: #FDFDFD;
+  --primary: #084207;    /* deep green */
+  --black: #000000;
+  --brown: #311D0D;
+  --gray: #C7C5BF;
+  --text-main: #000000;
+}
+
 /* Global reset / base */
 * {
   box-sizing: border-box;
@@ -7,26 +17,29 @@ body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
   line-height: 1.6;
-  background-color: #0f172a;
-  color: #111827;
+  background-color: var(--bg-main);
+  color: var(--text-main);
 }
 
 /* ===== Header Navigation ===== */
 header {
-  background-color: #002b5c;
+  background-color: var(--black);
   padding: 1rem;
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 10;
 }
+
 nav a {
-  color: white;
+  color: #FDFDFD;
   margin: 0 1rem;
   text-decoration: none;
   font-weight: 500;
 }
-nav a: hover {
+
+nav a:hover {
+  color: var(--gray);
   text-decoration: underline;
 }
 
@@ -34,37 +47,51 @@ nav a: hover {
 section {
   max-width: 900px;
   margin: 1.5rem auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.25);
+  background-color: #FFFFFF;
+  border-radius: 14px;
+  padding: 2rem;
+  border: 1px solid var(--gray);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
 }
 
-/* Individual section colors */
-.about     { background: #eff6ff; padding: 2rem; }  /* light blue */
-.portfolio { background: #e0f2fe; padding: 2rem; }  /* slightly deeper blue */
-.repos     { background: #f3e8ff; padding: 2rem; }  /* lavender */
-.problem   { background: #fff7ed; padding: 2rem; }  /* warm cream */
-.affinity  { background: #fef9c3; padding: 2rem; }  /* pale yellow */
-.skills    { background: #ecfdf5; padding: 2rem; }  /* mint */
-.projects  { background: #f1f5f9; padding: 2rem; }  /* cool gray */
-.contact   { background: #fef2f2; padding: 2rem; }  /* soft red */
+/* Colored left accents to keep it fun but neat */
+.about   { border-left: 6px solid var(--primary); }
+.repos   { border-left: 6px solid var(--brown); }
+.problem { border-left: 6px solid var(--primary); }
+.affinity{ border-left: 6px solid var(--brown); }
+.skills  { border-left: 6px solid var(--primary); }
+.projects{ border-left: 6px solid var(--brown); }
+.contact { border-left: 6px solid var(--primary); }
 
-/* Heading & lists */
-h1, h2{
-  margin: 0 0 0.5rem; 
+/* Headings & lists */
+h1, h2 {
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 h3 {
   margin-top: 1rem;
   margin-bottom: 0.25rem;
+  font-size: 1.1rem;
 }
 
-ul { 
-  margin: 0.5rem 0 0 1rem; 
+ul {
+  margin: 0.5rem 0 0 1rem;
 }
 
 /* Links inside content */
 section a {
-  color: #1d4ed8;
+  color: var(--primary);
   font-weight: 500;
 }
 
@@ -72,21 +99,20 @@ section a:hover {
   text-decoration: underline;
 }
 
-/* ===== Affinity Diagram Styling ===== */
+/* ===== Affinity Diagram / Project Images ===== */
 figure {
   margin: 1.5rem auto;
-  text-align:center;
+  text-align: center;
 }
-
 
 figure img {
   width: 100%;
-  max-width: 420px%
-  height:auto;
-  border: 1px solid #d1d5db;
+  max-width: 420px;
+  height: auto;
+  border: 1px solid var(--gray);
   border-radius: 10px;
   padding: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   transition: transform 0.2s ease-in-out;
 }
 
@@ -98,7 +124,7 @@ figure img:hover {
 /* Caption styling */
 figcaption {
   font-size: 0.9em;
-  color: #555;
+  color: var(--brown);
   text-align: center;
   margin-top: 8px;
   font-style: italic;
@@ -111,10 +137,10 @@ figcaption {
   max-width: 420px;
   height: auto;
   margin: 0.5rem 0 1rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--gray);
   border-radius: 10px;
   padding: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   transition: transform 0.2s ease-in-out;
 }
 
@@ -126,4 +152,3 @@ figcaption {
 .contact p {
   margin: 0.25rem 0;
 }
-  
