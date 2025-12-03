@@ -163,8 +163,8 @@ a:hover {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  align-items: start; /* cards can have different heights */
+  gap: 2rem;              /* extra gap so nothing feels cramped */
+  align-items: start;     /* cards grow independently, no overlap */
 }
 
 /* Base card */
@@ -223,7 +223,7 @@ a:hover {
   color: var(--green);
 }
 
-/* Problem: soft gray with green title, WIDER card on large screens */
+/* Problem: soft gray with green title */
 .card-problem {
   background-color: #f2f2f0;
   border-color: var(--gray);
@@ -254,7 +254,7 @@ a:hover {
   color: var(--aqua);
 }
 
-/* Affinity: solid aqua accent color, no gradient */
+/* Affinity: solid aqua accent color */
 .card-affinity {
   background-color: var(--aqua);
   border-color: var(--aqua);
@@ -288,7 +288,7 @@ a:hover {
   font-weight: 500;
 }
 
-/* Projects: solid gray accent color, no gradient */
+/* Projects: solid gray accent color */
 .card-projects {
   background-color: var(--gray);
   border-color: var(--gray);
@@ -307,7 +307,7 @@ a:hover {
 }
 .project-block img {
   width: 100%;
-  max-width: 420px;
+  max-width: 700px;       /* bigger sketches */
   margin-top: 0.4rem;
   border-radius: 12px;
   border: 1px solid var(--gray);
@@ -329,7 +329,7 @@ figure {
 }
 figure img {
   width: 100%;
-  max-width: 420px;
+  max-width: 700px;       /* bigger affinity diagram */
   border-radius: 12px;
   border: 1px solid var(--gray);
 }
@@ -339,16 +339,18 @@ figcaption {
   margin-top: 0.25rem;
 }
 
-/* ===== Responsive tweaks & wide-card layout ===== */
+/* ===== Wide-card layout so big content fits nicely ===== */
 
-/* Allow the Problem Statement card to span 2 columns on larger screens
-   so the full text fits comfortably and the card can be bigger. */
-@media (min-width: 1100px) {
-  .card-problem {
+@media (min-width: 1050px) {
+  /* Let these cards be wider (2 columns) so text/images fit comfortably */
+  .card-problem,
+  .card-affinity,
+  .card-projects {
     grid-column: span 2;
   }
 }
 
+/* ===== Responsive tweaks for small screens ===== */
 @media (max-width: 800px) {
   .app-shell {
     flex-direction: column;
@@ -375,5 +377,6 @@ figcaption {
     padding: 1.2rem 1.25rem 2rem;
   }
 }
+
 
 
