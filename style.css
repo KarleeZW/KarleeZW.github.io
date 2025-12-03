@@ -8,7 +8,7 @@
   --aqua:   #CBEEF3;
 }
 
-/* Global reset / base */
+/* Global base */
 * {
   box-sizing: border-box;
 }
@@ -16,199 +16,261 @@
 body {
   margin: 0;
   line-height: 1.6;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
   color: var(--black);
-
-  /* Soft modern background pattern */
-  background-color: #FDFDFD;
-  background-image: 
-      radial-gradient(circle at 20% 20%, rgba(203,238,243,0.55) 10%, transparent 45%),
-      radial-gradient(circle at 80% 15%, rgba(199,197,191,0.45) 8%, transparent 45%),
-      radial-gradient(circle at 12% 75%, rgba(203,238,243,0.55) 12%, transparent 50%),
-      radial-gradient(circle at 90% 80%, rgba(199,197,191,0.45) 10%, transparent 50%);
-  background-size: 600px 600px;
-  background-attachment: fixed; /* smooth parallax feel */
+  background-color: #f3f4f6; /* simple neutral background for now */
 }
 
-
-/* ===== NAVBAR (solid, not gradient) ===== */
-header {
-  background-color: var(--green);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.35);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-nav {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0.75rem 1.5rem;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.6rem;
-}
-
-nav a {
-  color: #FDFDFD;
+a {
+  color: var(--green);
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-
-  padding: 0.35rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.25);
-
-  transition:
-    background-color 0.2s ease-out,
-    color 0.2s ease-out,
-    transform 0.15s ease-out,
-    box-shadow 0.15s ease-out;
 }
 
-nav a:hover {
-  background-color: #FDFDFD;
-  color: var(--green);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
-}
-
-/* ===== CARD GRID LAYOUT ===== */
-.card-grid {
-  max-width: 1100px;
-  margin: 2rem auto 3rem;
-  padding: 0 1.25rem 0.5rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.75rem;
-}
-
-/* Base card style */
-.card-grid section {
-  background-color: var(--paper);
-  border-radius: 18px;
-  padding: 1.75rem 1.8rem 2rem;
-  border: 1px solid var(--gray);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-
-  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
-}
-
-.card-grid section:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
-}
-
-/* Headings & text */
-h1, h2 {
-  margin: 0 0 0.4rem;
-  font-weight: 700;
-}
-
-h1 {
-  font-size: 1.7rem;
-}
-
-h2 {
-  font-size: 1rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-h3 {
-  margin: 0.8rem 0 0.3rem;
-  font-size: 1rem;
-}
-
-ul {
-  margin: 0.4rem 0 0 1.1rem;
-}
-
-/* Links in content */
-section a {
-  color: var(--green);
-  font-weight: 500;
-}
-
-section a:hover {
+a:hover {
   text-decoration: underline;
 }
 
-/* ===== INDIVIDUAL CARD COLORS / STYLES ===== */
+/* ===== Shell layout ===== */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
 
-/* About – aqua card, dark green heading */
-#about {
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 240px;
+  background-color: var(--green);
+  color: #fdfdfd;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.4rem;
+  gap: 1.5rem;
+}
+
+/* Brand block */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background-color: #fdfdfd;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.brand-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* Side nav */
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.side-nav a {
+  color: #fdfdfd;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition:
+    background-color 0.15s ease-out,
+    transform 0.15s ease-out,
+    border-color 0.15s ease-out;
+}
+
+.side-nav a:hover {
+  background-color: #fdfdfd;
+  color: var(--green);
+  border-color: rgba(0, 0, 0, 0.05);
+  transform: translateX(2px);
+}
+
+/* Sidebar footer */
+.sidebar-footer {
+  margin-top: auto;
+  font-size: 0.8rem;
+}
+
+.sidebar-label {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.7;
+  margin: 0 0 0.35rem;
+}
+
+.sidebar-email {
+  color: #fdfdfd;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+/* ===== Main area ===== */
+.main {
+  flex: 1;
+  padding: 1.5rem 2rem 2.5rem;
+}
+
+/* Top bar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.topbar-subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* ===== Card grid ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Base card */
+.card {
+  background-color: var(--paper);
+  border-radius: 18px;
+  padding: 1.4rem 1.5rem 1.6rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e5e7eb;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-height: 0;
+}
+
+.card h2 {
+  margin: 0 0 0.6rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.card h3 {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 1rem;
+}
+
+.card p {
+  margin: 0.1rem 0;
+  font-size: 0.94rem;
+}
+
+/* Card title/tagline in About */
+.card-title {
+  font-size: 1.3rem;
+  margin-top: 0;
+}
+
+.card-tagline {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #6b7280;
+}
+
+/* ===== Individual card color accents ===== */
+
+/* About: aqua background */
+.card-about {
   background-color: var(--aqua);
   border-color: var(--aqua);
 }
-#about h1 {
+.card-about h2 {
   color: var(--green);
 }
-#about p:first-of-type {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-}
 
-/* Portfolio – light neutral with brown headers */
-#portfolio {
-  background-color: #F8F7F4;
+/* Problem: soft gray with green title */
+.card-problem {
+  background-color: #f2f2f0;
   border-color: var(--gray);
 }
-#portfolio h2,
-#portfolio h3 {
+.card-problem h2 {
+  color: var(--green);
+}
+
+/* Portfolio: neutral card with brown accent */
+.card-portfolio {
+  background-color: #f8f7f4;
+  border-color: var(--gray);
+}
+.card-portfolio h2 {
   color: var(--brown);
 }
 
-/* Repos – dark card, aqua highlights */
-#repos {
+/* Repos: dark card with aqua text */
+.card-repos {
   background-color: var(--brown);
   border-color: var(--black);
-  color: #FDFDFD;
+  color: #fdfdfd;
 }
-#repos h2 {
+.card-repos h2 {
   color: var(--aqua);
 }
-#repos a {
+.card-repos a {
   color: var(--aqua);
 }
 
-/* Problem statement – soft gray with green header */
-#problem {
-  background-color: #F2F2F0;
-  border-color: var(--gray);
-}
-#problem h2 {
-  color: var(--green);
-}
-
-/* Affinity – pale aqua/gray mix */
-#affinity {
-  background-color: #E7F6F8; /* between aqua & paper */
+/* Affinity: light aqua/gray mix */
+.card-affinity {
+  background-color: #e7f6f8;
   border-color: var(--aqua);
 }
-#affinity h2 {
+.card-affinity h2 {
   color: var(--brown);
 }
 
-/* Skills – fun pill tags on aqua background */
-#skills {
+/* Skills: aqua with chips */
+.card-skills {
   background-color: var(--aqua);
   border-color: var(--green);
 }
-#skills h2 {
+.card-skills h2 {
   color: var(--green);
 }
-#skills ul {
+.skills-list {
   list-style: none;
   padding-left: 0;
   display: flex;
@@ -216,8 +278,8 @@ section a:hover {
   gap: 0.5rem;
   margin-top: 0.6rem;
 }
-#skills li {
-  background-color: #FDFDFD;
+.skills-list li {
+  background-color: #fdfdfd;
   border-radius: 999px;
   border: 1px solid var(--gray);
   padding: 0.25rem 0.8rem;
@@ -225,61 +287,78 @@ section a:hover {
   font-weight: 500;
 }
 
-/* Projects – split-tone card */
-#projects {
-  background: linear-gradient(135deg, #F2F2F0 0%, #CBEEF3 100%);
+/* Projects: gentle gradient */
+.card-projects {
+  background: linear-gradient(135deg, #f2f2f0 0%, #cbeef3 100%);
   border-color: var(--gray);
 }
-#projects h2 {
+.card-projects h2 {
   color: var(--black);
 }
-
-/* Contact – clean, with green header */
-#contact {
-  background-color: #F8F7F4;
-  border-color: var(--gray);
+.project-block {
+  margin-top: 0.6rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 0.6rem;
 }
-#contact h2 {
-  color: var(--green);
-}
-#contact p {
-  margin: 0.25rem 0;
-}
-
-/* ===== Images (affinity + project thumbnails) ===== */
-figure {
-  margin: 1.1rem auto 0.3rem;
-  text-align: center;
-}
-
-figure img,
-.projects img {
+.project-block img {
   width: 100%;
   max-width: 420px;
-  height: auto;
-  border-radius: 14px;
+  margin-top: 0.4rem;
+  border-radius: 12px;
   border: 1px solid var(--gray);
-  padding: 4px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-figure img:hover,
-.projects img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+/* Contact: simple neutral */
+.card-contact {
+  background-color: #f8f7f4;
+  border-color: var(--gray);
+}
+.card-contact h2 {
+  color: var(--green);
 }
 
-/* Caption text */
+/* ===== Images in affinity/projects ===== */
+figure {
+  margin: 0.6rem 0 0.2rem;
+  text-align: center;
+}
+figure img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  border: 1px solid var(--gray);
+}
 figcaption {
-  font-size: 0.85em;
+  font-size: 0.8rem;
   color: var(--brown);
-  margin-top: 6px;
-  font-style: italic;
+  margin-top: 0.25rem;
 }
 
-/* Make long text inside cards read nicely */
-.card-grid section p {
-  margin: 0.15rem 0;
-  font-size: 0.95rem;
+/* ===== Responsive tweaks ===== */
+@media (max-width: 800px) {
+  .app-shell {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .side-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sidebar-footer {
+    display: none;
+  }
+
+  .main {
+    padding: 1.2rem 1.25rem 2rem;
+  }
 }
+
