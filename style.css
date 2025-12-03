@@ -17,9 +17,19 @@ body {
   margin: 0;
   line-height: 1.6;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--paper);
   color: var(--black);
+
+  /* Soft modern background pattern */
+  background-color: #FDFDFD;
+  background-image: 
+      radial-gradient(circle at 20% 20%, rgba(203,238,243,0.55) 10%, transparent 45%),
+      radial-gradient(circle at 80% 15%, rgba(199,197,191,0.45) 8%, transparent 45%),
+      radial-gradient(circle at 12% 75%, rgba(203,238,243,0.55) 12%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(199,197,191,0.45) 10%, transparent 50%);
+  background-size: 600px 600px;
+  background-attachment: fixed; /* smooth parallax feel */
 }
+
 
 /* ===== NAVBAR (solid, not gradient) ===== */
 header {
