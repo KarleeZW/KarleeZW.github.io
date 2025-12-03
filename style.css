@@ -1,7 +1,14 @@
+/* Global reset / base */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
   line-height: 1.6;
+  background-color: #0f172a;
+  color: #111827;
 }
 
 /* ===== Header Navigation ===== */
@@ -9,6 +16,9 @@ header {
   background-color: #002b5c;
   padding: 1rem;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 nav a {
   color: white;
@@ -20,14 +30,46 @@ nav a: hover {
   text-decoration: underline;
 }
 
-.about    { background: #f0f8ff; padding: 2rem; }
-.skills   { background: #fff7ed; padding: 2rem; }
-.projects { background: #f1f5f9; padding: 2rem; }
-.contact  { background: #fef2f2; padding: 2rem; }
-
-h1, h2{margin: 0 0 .5rem; 
+/* ===== Section layout ===== */
+section {
+  max-width: 900px;
+  margin: 1.5rem auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.25);
 }
-ul { margin: .5rem 0 0 1rem; 
+
+/* Individual section colors */
+.about     { background: #eff6ff; padding: 2rem; }  /* light blue */
+.portfolio { background: #e0f2fe; padding: 2rem; }  /* slightly deeper blue */
+.repos     { background: #f3e8ff; padding: 2rem; }  /* lavender */
+.problem   { background: #fff7ed; padding: 2rem; }  /* warm cream */
+.affinity  { background: #fef9c3; padding: 2rem; }  /* pale yellow */
+.skills    { background: #ecfdf5; padding: 2rem; }  /* mint */
+.projects  { background: #f1f5f9; padding: 2rem; }  /* cool gray */
+.contact   { background: #fef2f2; padding: 2rem; }  /* soft red */
+
+/* Heading & lists */
+h1, h2{
+  margin: 0 0 0.5rem; 
+}
+
+h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+ul { 
+  margin: 0.5rem 0 0 1rem; 
+}
+
+/* Links inside content */
+section a {
+  color: #1d4ed8;
+  font-weight: 500;
+}
+
+section a:hover {
+  text-decoration: underline;
 }
 
 /* ===== Affinity Diagram Styling ===== */
@@ -41,10 +83,10 @@ figure img {
   width: 100%;
   max-width: 420px%
   height:auto;
-  border: 1px solid #ccc;
+  border: 1px solid #d1d5db;
   border-radius: 10px;
   padding: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.88);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
   transition: transform 0.2s ease-in-out;
 }
 
@@ -60,5 +102,28 @@ figcaption {
   text-align: center;
   margin-top: 8px;
   font-style: italic;
+}
+
+/* Project thumbnails (reuse same style) */
+.projects img {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin: 0.5rem 0 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  transition: transform 0.2s ease-in-out;
+}
+
+.projects img:hover {
+  transform: scale(1.02);
+}
+
+/* Contact section text alignment */
+.contact p {
+  margin: 0.25rem 0;
 }
   
