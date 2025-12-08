@@ -41,7 +41,7 @@ a:hover {
 /* ===== Sidebar ===== */
 .sidebar {
   width: 240px;
-  background-color: var(--green);
+  background-color: #000000;
   color: #fdfdfd;
   display: flex;
   flex-direction: column;
@@ -61,7 +61,7 @@ a:hover {
   height: 40px;
   border-radius: 999px;
   background-color: #fdfdfd;
-  color: var(--green);
+  color: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,7 +111,7 @@ a:hover {
 
 .side-nav a:hover {
   background-color: #fdfdfd;
-  color: var(--green);
+  color: #000000;
   border-color: rgba(0, 0, 0, 0.05);
   transform: translateX(2px);
 }
@@ -224,7 +224,44 @@ a:hover {
   color: var(--green);
 }
 
-/* Problem: - custom brown background with light blue text */
+/* About section layout with image and text */
+.about-content {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.about-image {
+  flex-shrink: 0;
+  width: 280px;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.about-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+@media (max-width: 800px) {
+  .about-content {
+    flex-direction: column;
+  }
+  
+  .about-image {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Problem: UPDATED - custom brown background with light blue text */
 .card-problem {
   background-color: #49240B;
   border-color: #49240B;
@@ -350,65 +387,66 @@ figcaption {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  /* ===== ROW 1 (four equal cards) ===== */
+  /* ===== ROW 1 (About - full width) ===== */
   .card-about {
-    grid-column: 1;
+    grid-column: 1 / span 4;
     grid-row: 1;
+    min-height: 350px;
   }
 
+  /* ===== ROW 2 (Problem, Portfolio, Repos - three columns) ===== */
   .card-problem {
-    grid-column: 2;
-    grid-row: 1;
+    grid-column: 1;
+    grid-row: 2;
   }
 
   .card-portfolio {
-    grid-column: 3;
-    grid-row: 1;
+    grid-column: 2;
+    grid-row: 2;
   }
 
   .card-repos {
-    grid-column: 4;
-    grid-row: 1;
+    grid-column: 3 / span 2;
+    grid-row: 2;
   }
 
-  /* Match all Row 1 cards to same height */
-  .card-about,
+  /* Match all Row 2 cards to same height */
   .card-problem,
   .card-portfolio,
   .card-repos {
-    min-height: 450px;
+    min-height: 420px;
     height: 100%;
   }
 
-  /* ===== ROW 2 (two full-width half cards) ===== */
+  /* ===== ROW 3 (Affinity and Projects - two half-width cards) ===== */
   .card-affinity {
     grid-column: 1 / span 2;
-    grid-row: 2;
+    grid-row: 3;
     min-height: 380px;
   }
 
   .card-projects {
     grid-column: 3 / span 2;
-    grid-row: 2;
+    grid-row: 3;
     min-height: 380px;
   }
 
-  /* Match Row 2 cards to same height */
+  /* Match Row 3 cards to same height */
   .card-affinity,
   .card-projects {
     height: 100%;
   }
 
-  /* ===== ROW 3 (skills and contact side by side) ===== */
+  /* ===== ROW 4 (Skills and Contact side by side) ===== */
   .card-skills {
     grid-column: 1 / span 2;
-    grid-row: 3;
+    grid-row: 4;
     min-height: 200px;
   }
 
   .card-contact {
     grid-column: 3 / span 2;
-    grid-row: 3;
+    grid-row: 4;
     min-height: 200px;
   }
 }
@@ -441,7 +479,3 @@ figcaption {
     padding: 1.2rem 1.25rem 2rem;
   }
 }
-
-
-
-
