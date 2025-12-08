@@ -6,6 +6,7 @@
   --gray:   #C7C5BF;
   --paper:  #FDFDFD;
   --aqua:   #CBEEF3;
+  --blue:   #0066CC;
 }
 
 /* Global base */
@@ -223,13 +224,17 @@ a:hover {
   color: var(--green);
 }
 
-/* Problem: soft gray with green title */
+/* Problem: UPDATED - brown background with blue text */
 .card-problem {
-  background-color: #f2f2f0;
-  border-color: var(--gray);
+  background-color: var(--brown);
+  border-color: var(--brown);
+  color: var(--blue);
 }
 .card-problem h2 {
-  color: var(--green);
+  color: var(--blue);
+}
+.card-problem strong {
+  color: var(--blue);
 }
 
 /* Portfolio: neutral card with brown accent */
@@ -366,12 +371,13 @@ figcaption {
     grid-row: 1;
   }
 
-  /* Match height across Row 1 */
+  /* UPDATED: Match all Row 1 cards to same height */
   .card-about,
   .card-problem,
   .card-portfolio,
   .card-repos {
-    min-height: 330px;
+    min-height: 450px;
+    height: 100%;
   }
 
   /* ===== ROW 2 (two full-width half cards) ===== */
@@ -387,18 +393,23 @@ figcaption {
     min-height: 380px;
   }
 
-  /* ===== ROW 3 (skills under about) ===== */
-  .card-skills {
-    grid-column: 1;
-    grid-row: 3;
-    min-height: 260px;
+  /* UPDATED: Match Row 2 cards to same height */
+  .card-affinity,
+  .card-projects {
+    height: 100%;
   }
 
-  /* ===== ROW 4 (contact under skills only) ===== */
+  /* ===== ROW 3 (skills and contact side by side) ===== */
+  .card-skills {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    min-height: 200px;
+  }
+
   .card-contact {
-    grid-column: 1;
-    grid-row: 4;
-    min-height: 170px;
+    grid-column: 3 / span 2;
+    grid-row: 3;
+    min-height: 200px;
   }
 }
 
