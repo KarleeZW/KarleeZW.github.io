@@ -224,17 +224,17 @@ a:hover {
   color: var(--green);
 }
 
-/* Problem: UPDATED - brown background with blue text */
+/* Problem: - custom brown background with light blue text */
 .card-problem {
-  background-color: var(--brown);
-  border-color: var(--brown);
-  color: var(--blue);
+  background-color: #49240B;
+  border-color: #49240B;
+  color: #D9F7FF;
 }
 .card-problem h2 {
-  color: var(--blue);
+  color: #D9F7FF;
 }
 .card-problem strong {
-  color: var(--blue);
+  color: #D9F7FF;
 }
 
 /* Portfolio: neutral card with brown accent */
@@ -371,7 +371,7 @@ figcaption {
     grid-row: 1;
   }
 
-  /* UPDATED: Match all Row 1 cards to same height */
+  /* Match all Row 1 cards to same height */
   .card-about,
   .card-problem,
   .card-portfolio,
@@ -393,7 +393,7 @@ figcaption {
     min-height: 380px;
   }
 
-  /* UPDATED: Match Row 2 cards to same height */
+  /* Match Row 2 cards to same height */
   .card-affinity,
   .card-projects {
     height: 100%;
